@@ -142,8 +142,8 @@ body {
         <div id="guestNote">*mohon maaf apabila salah dalam penulisan nama/gelar</div>
         <h1>You're Invited to Our Wedding</h1>
         <a class="button" onclick="openInvitation()">
-            <i class="fa-solid fa-envelope-open"></i> Buka Undangan
-        </a>
+  <i class="fa-solid fa-envelope-open"></i> Buka Undangan
+</a>
     </div>
 </div>
 
@@ -156,14 +156,14 @@ if (guest) {
   sessionStorage.setItem("guestName", decodeURIComponent(guest));
 }
 
-function openInvitation() {
-  const cover = document.querySelector(".cover");
-  cover.classList.add("is-closed");
+  function openInvitation() {
+    sessionStorage.setItem("opened", "yes");
 
-  setTimeout(() => {
+    // pastikan benar-benar tersimpan
+    console.log("opened =", sessionStorage.getItem("opened"));
+
     window.location.href = "index.html";
-  }, 1000);
-}
+  }
 
 
 // Update posisi saat load dan resize
