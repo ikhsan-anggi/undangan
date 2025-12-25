@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Undangan Pernikahan Ikhsan & Anggi</title>
+
+<link rel="preload" as="image" href="assets/images/cover.jpg">
+<link rel="preload" as="audio" href="assets/audio/your-music.mp3">
+<link rel="preload" as="style" href="style.css">
+<link rel="preload" as="script" href="script.js">
+
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    /* Ubah dari overflow: hidden; agar animasi transisi bekerja dengan baik */
+    overflow: auto; 
+}
+
+/* COVER */
+.cover {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    /* Tambahan: Pastikan elemen ini berada di atas elemen lain saat transisi */
+    z-index: 99; 
+    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out; 
+}
+
+/* KEYFRAMES untuk Transisi (BARU DITAMBAHKAN) */
+@keyframes slideOut {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh); /* Geser ke atas keluar layar */
+        opacity: 0;
+    }
+}
+
+/* Kelas yang ditambahkan JavaScript saat tombol diklik (BARU DITAMBAHKAN) */
+.cover.is-closed {
+    animation: slideOut 0.9s ease-in-out forwards; /* Durasi animasi 0.9 detik */
+}
+
+/* Background blur only */
+.cover::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* Ganti dengan path gambar Anda */
+    background: url('assets/images/cover.jpg') center/cover no-repeat; 
+    filter: brightness(1);
+    transform: scale(1.05);
+    z-index: -1;
+}
+
+
+
+/* Konten kiri bawah */
+.content {
+    position: absolute;
+    bottom: 5vh;
+    left: 0vw;
+    right: 0vw;
+    z-index: 2;
+    text-align: left;
+    
+    /* Tambahan untuk blur background (Glassmorphism) */
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(0.87px);
+    border-radius: 12px;
+    padding: 15px 20px;
+    display: block;
+}
+
+.to { margin: 0 0 5px 0; font-size: 1.15rem; color: #fff; }
+
+#guestNameWrapper {
+    display: inline-block;
+    padding: 0.6vw 1vw;
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255,255,255,0.4);
+    backdrop-filter: blur(3px);
+    border-radius: 12px;
+    margin-bottom: 4px;
+}
+
+#guestName { font-weight: 700; font-size: 1.25rem; color: #fff; display: block; }
+#guestNote { font-style: italic; font-size: 0.85rem; color: #e0e0e0; margin-top: 2px; }
+
+.content h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem,5vw,2rem); color: #f0f4fa; margin: 10px 0 0 0; }
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background-color: #cbd5e1;
+    color: #1e3a8a;
+    padding: 0.5rem 0.9rem;
+    border-radius: 28px;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transition: 0.3s ease;
+}
+
+.button:hover { background-color: #bfcad6; }
+
+/* RESPONSIVE */
+@media (max-width:768px){
+    .name-boy, .name-girl { font-size: 5vw; padding: 1vw 2vw; }
+    .content h1 { font-size: clamp(1.2rem,6vw,1.8rem); }
+    .to { font-size: 1rem; }
+    #guestName { font-size: 1.1rem; }
+    #guestNote { font-size: 0.75rem; }
+    #guestNameWrapper { padding: 0.8vw 1.5vw; margin-bottom: 3px; }
+    .button { padding: 0.45rem 0.8rem; font-size: 0.85rem; }
+}
+</style>
+</head>
+
+<body>
+<div class="cover">
+    <div class="content">
+        <p class="to">Dear,</p>
+        <span id="guestNameWrapper">
+            <span id="guestName">Tamu Undangan</span>
+        </span>
+        <div id="guestNote">*mohon maaf apabila salah dalam penulisan nama/gelar</div>
+        <h1>You're Invited to Our Wedding</h1>
+        <a class="button" onclick="openInvitation()">
+            <i class="fa-solid fa-envelope-open"></i> Buka Undangan
+        </a>
+    </div>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const guest = params.get("to");
+
+if (guest) {
+  document.getElementById("guestName").innerText = decodeURIComponent(guest);
+  sessionStorage.setItem("guestName", decodeURIComponent(guest));
+}
+
+function openInvitation() {
+  const cover = document.querySelector(".cover");
+  cover.classList.add("is-closed");
+
+  setTimeout(() => {
+    window.location.href = "index.html";
+  }, 1000);
+}
+
+
+// Update posisi saat load dan resize
+window.addEventListener('load', updateNamePosition);
+window.addEventListener('resize', updateNamePosition);
+</script>
+</body>
+</html>

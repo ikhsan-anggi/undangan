@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ikhsan & Anggi Wedding</title>
+
+  <link rel="icon" href="favicon_ai.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- ================= HERO ================= -->
+<header id="hero">
+    <div class="hero-blur-box"></div>  
+
+    <div class="hero-content">
+        <div class="hero-inner">
+            <h3 class="hero-subtitle">The Wedding of</h3>
+            <h1 class="hero-title">Ikhsan & Anggi</h1>
+            <p class="hero-date">10.01.2026</p>
+        </div>
+    </div>
+
+  <audio id="bg-music" preload="auto" loop>
+  <source src="assets/audio/your-music.mp3" type="audio/mpeg">
+</audio>
+
+<button id="music-toggle" class="music-btn">
+  <span id="music-icon">🔊</span>
+</button>
+
+</header>
+
+<!-- ============== COUNTDOWN ============== -->
+<section class="section">
+  <div class="blur-card fade-up">
+    <h2 class="section-title">Menuju Hari Bahagia</h2>
+
+    <div class="countdown-box">
+      <div class="cd-item"><span id="cd-days">00</span><small>Hari</small></div>
+      <div class="cd-item"><span id="cd-hours">00</span><small>Jam</small></div>
+      <div class="cd-item"><span id="cd-minutes">00</span><small>Menit</small></div>
+      <div class="cd-item"><span id="cd-seconds">00</span><small>Detik</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== AYAT ============== -->
+<section class="section">
+  <div class="blur-card fade-up">
+    <blockquote class="quote">
+      “Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan
+      untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya.
+      Dan Dia menjadikan di antaramu rasa kasih dan sayang.”
+    </blockquote>
+    <p class="quote-ref">(QS. Ar-Rum: 21)</p>
+  </div>
+</section>
+
+<!-- ============== SALAM PEMBUKA ============== -->
+<section class="section">
+  <div class="blur-card fade-up salam-card">
+    <h3 class="salam-title">
+      Assalamu’alaikum Warahmatullahi Wabarakatuh
+    </h3>
+
+    <p class="salam-text">
+      Dengan penuh rasa syukur dan memohon rahmat serta ridho Allah SWT,
+      kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan menjadi bagian
+      dari hari bahagia kami.
+    </p>
+  </div>
+</section>
+
+
+<!-- ============== PROFIL MEMPELAI FULL SCREEN ============== -->
+<section id="couple" class="couple-section fade-up">
+
+  <!-- Groom -->
+  <div class="couple-full">
+    <div class="couple-photo" style="background-image:url('assets/images/ikhsan.jpg')"></div>
+
+    <div class="couple-overlay">
+      <div class="couple-overlay groom-overlay">
+
+      <p class="couple-role">The Groom</p>
+      <h3 class="couple-name">Muhammad Ikhsan Azhari, S.Kom.</h3>
+      <p class="couple-parents">
+        Putra dari Bapak M. Darwin <br>
+        & Ibu Dwi Kartika
+      </p>
+    </div>
+    </div>
+  </div>
+
+  <!-- Divider -->
+  <div class="couple-divider-full">❦</div>
+
+  <!-- Bride -->
+  <div class="couple-full">
+    <div class="couple-photo" style="background-image:url('assets/images/anggi.jpg')"></div>
+
+    <div class="couple-overlay">
+      <div class="couple-overlay bride-overlay">
+      <p class="couple-role">The Bride</p>
+      <h3 class="couple-name">Anggi Faradhiba Puspa Ningrum, S.Kom.</h3>
+      <p class="couple-parents">
+        Putri dari Bapak Sutarno, S.T. <br>
+        & Ibu Nazariah
+      </p>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section id="event-section" class="section event">
+  <div class="event-card-blur fade-up">
+    <h2 class="event-title">Acara Pernikahan</h2>
+
+    <div class="event-item">
+      <h3 class="event-name">Akad Nikah</h3>
+      <p class="event-info">Jumat, 9 Januari 2026</p>
+      <p class="event-info">Pukul 09.00 WIB</p>
+    </div>
+
+    <div class="event-divider"></div>
+
+    <div class="event-item">
+      <h3 class="event-name">Resepsi</h3>
+      <p class="event-info">Sabtu, 10 Januari 2026</p>
+      <p class="event-info">Pukul 10.00 WIB – Selesai</p>
+    </div>
+
+    <div class="event-divider"></div>
+
+    <div class="event-item">
+      <p class="event-location">
+        Kediaman Mempelai Wanita<br>
+        Nagori Tempel Jaya,<br>
+        Bosar Maligas
+      </p>
+
+      <a
+        href="https://maps.app.goo.gl/f8R9tCCNrtHXtWcr7"
+        target="_blank"
+        class="maps-btn"
+      >
+        Lihat Lokasi
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================
+      OUR STORY
+============================= -->
+<section id="story-section">
+  <div class="story-wrapper">
+
+    <h2 class="story-title fade-up">Our Story</h2>
+
+    <div class="story-item fade-up">
+      <h3>First Phase</h3>
+      <p>
+        Dalam riuhnya dunia dan rangkaian kata yang sederhana, semesta akhirnya mempertemukan dua hati yang sebelumnya tak pernah bersua
+      </p>
+    </div>
+
+    <div class="story-item fade-up">
+      <h3>Second Phase</h3>
+      <p>
+        Tatapan pertama menyimpan banyak tanya, namun tanpa perlu banyak kata, hati lebih dulu memahami bahasa yang sama
+      </p>
+    </div>
+
+    <div class="story-item fade-up">
+      <h3>Third Phase</h3>
+      <p>
+        Kami pernah terpisah oleh jarak dan hampir kalah oleh ego. Namun rindu selalu menjadi suara paling lantang yang mengingatkan untuk tetap menggenggam erat
+      </p>
+    </div>
+
+    <div class="story-item fade-up">
+      <h3>Fourth Phase</h3>
+      <p>
+        Tak ada lagi pencarian, karena langkah ini telah berhenti pada pelukan yang benar. Tak ada lagi keraguan, sebab hati telah menemukan rumahnya
+      </p>
+    </div>
+    
+    <div class="story-item fade-up">
+      <h3>Final Phase</h3>
+      <p>
+        Dalam akad nanti, kami tidak menemukan akhir, melainkan awal dari perjalanan baru — tanda bahwa kisah ini akan terus berlanjut tanpa usai
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================
+      GALLERY
+============================= -->
+<section id="gallery-section">
+  <div class="gallery-wrapper">
+
+    <h2 class="gallery-title fade-up">Our Gallery</h2>
+
+    <div class="gallery-grid">
+      <img src="assets/images/gallery-4.jpg" class="gallery-item fade-up" />
+      <img src="assets/images/gallery-8.jpg" class="gallery-item fade-up tall" />
+      <img src="assets/images/gallery-5.jpg" class="gallery-item fade-up" />
+      <img src="assets/images/gallery-1.jpg" class="gallery-item fade-up wide" />
+      <img src="assets/images/gallery-3.jpg" class="gallery-item fade-up" />
+      <img src="assets/images/gallery-7.jpg" class="gallery-item fade-up tall" />
+       <img src="assets/images/gallery-9.jpg" class="gallery-item fade-up" />
+
+    </div>
+
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-img" />
+</div>
+
+<!-- ============================
+      RSVP & UCAPAN
+============================= -->
+<section id="rsvp-section">
+  <div class="rsvp-wrapper fade-up">
+
+    <h2 class="rsvp-title">Buku Tamu</h2>
+    <p class="rsvp-desc">Doa & ucapan terbaikmu sangat berarti bagi kami</p>
+
+    <form id="rsvp-form">
+      <input 
+        type="text" 
+        id="rsvp-name" 
+        placeholder="Nama" 
+        required 
+      />
+
+      <textarea 
+        id="rsvp-message" 
+        rows="4" 
+        placeholder="Doa & Ucapan" 
+        required
+      ></textarea>
+
+      <div class="rsvp-radio">
+        <label>
+          <input type="radio" name="attendance" value="Hadir" required />
+          Hadir
+        </label>
+        <label>
+          <input type="radio" name="attendance" value="Tidak Hadir" />
+          Tidak Hadir
+        </label>
+      </div>
+
+      <button type="submit" id="rsvp-submit">
+         Kirim Ucapan
+    </button>
+
+    </form>
+
+    <div class="rsvp-list" id="rsvp-list"></div>
+
+  </div>
+</section>
+
+<div id="rsvpToast" class="rsvp-toast"></div>
+
+
+<!-- ============================
+      WEDDING GIFT
+============================= -->
+<section id="gift" class="section-blur">
+
+  <div class="section-inner fade-up">
+    <h2 class="gift-title">Wedding Gift</h2>
+
+    <p class="gift-desc">
+      Doa restu Anda adalah hadiah terindah bagi kami.  
+      Namun apabila ingin berbagi kebahagiaan, dapat melalui:
+    </p>
+
+    <!-- BLUR BOX SEDANG -->
+    <div class="gift-container">
+
+      <!-- AKUN 1 -->
+      <div class="gift-item">
+        <img src="assets/images/dana-logo.png" alt="DANA" class="gift-logo">
+        <h3 class="gift-name">Anggi</h3>
+        <p class="gift-number">082362481062</p>
+        <button class="gift-btn" onclick="copyGift('082362481062')">
+          <i class="fa-regular fa-copy"></i> Salin Nomor
+        </button>
+      </div>
+
+      <!-- AKUN 2 -->
+      <div class="gift-item">
+        <img src="assets/images/dana-logo.png" alt="DANA" class="gift-logo">
+        <h3 class="gift-name">Ikhsan</h3>
+        <p class="gift-number">081370237909</p>
+        <button class="gift-btn" onclick="copyGift('08XXXXXXXXXX')">
+          <i class="fa-regular fa-copy"></i> Salin Nomor
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<div id="copyToast" class="copy-toast">
+  Nomor berhasil disalin
+</div>
+
+
+
+<!-- ============================
+      CLOSING CINEMATIC
+============================= -->
+<section id="closing-cinematic">
+  <div class="closing-content fade-up">
+
+    <small class="closing-small">
+      Akhir dari undangan
+    </small>
+
+    <h2 class="closing-title">
+      Awal dari kisah kami
+    </h2>
+
+   <div class="closing-heart">
+  <svg class="heart-svg" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12 21s-6.7-4.35-9.33-7.4C.88 11.3 1.4 7.8 4.28 6.4c1.78-.9 3.93-.5 5.14 1.06L12 9.8l2.58-2.34c1.21-1.56 3.36-1.96 5.14-1.06 2.88 1.4 3.4 4.9 1.61 7.2C18.7 16.65 12 21 12 21z"/>
+  </svg>
+</div>
+    <p class="closing-text">
+      Terima kasih sudah meluangkan waktu untuk hadir,
+      membaca, dan ikut mendoakan perjalanan kami.
+      <br><br>
+      Sampai bertemu di hari bahagia 
+    </p>
+
+  </div>
+</section>
+
+
+
+<script src="script.js"></script>
+</body>
+
+<footer class="wedding-footer">
+  <p class="footer-love">Made with <span>❤</span></p>
+  <p class="footer-copy">© Ikhsan & Anggi</p>
+</footer>
+
+
+</html>
