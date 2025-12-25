@@ -19,7 +19,7 @@ body {
 }
 
 body.loaded {
-  background: url("assets/images/cover.jpg") center/cover no-repeat fixed;
+  background: url("assets/images/cover.webp") center/cover no-repeat fixed;
 }
 
 @supports (-webkit-touch-callout: none) {
