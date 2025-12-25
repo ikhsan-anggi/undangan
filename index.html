@@ -15,15 +15,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
-
+<script>
+  (function () {
+    const opened = sessionStorage.getItem("opened");
+    if (opened !== "yes") {
+      window.location.replace("cover.html");
+    }
+  })();
+</script>
 </head>
 
 <body>
-<script>
-  if (!sessionStorage.getItem("opened")) {
-    window.location.href = "cover.html";
-  }
-</script>
+  
 <!-- ================= HERO ================= -->
 <header id="hero">
     <div class="hero-blur-box"></div>  
