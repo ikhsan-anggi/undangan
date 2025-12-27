@@ -170,14 +170,14 @@ if (guest) {
   sessionStorage.setItem("guestName", decodeURIComponent(guest));
 }
 
-  function openInvitation() {
-    sessionStorage.setItem("opened", "yes");
+function openInvitation() {
+  const coverContent = document.querySelector(".cover .content");
+  coverContent.classList.add("slide-up"); // trigger animasi slide-up
 
-    // pastikan benar-benar tersimpan
-    console.log("opened =", sessionStorage.getItem("opened"));
-
-    window.location.href = "index.html";
-  }
+  setTimeout(() => {
+    window.location.href = "index.html"; // pindah ke index.html setelah animasi
+  }, 800); // durasi animasi sama seperti CSS
+}
 
 
 // Update posisi saat load dan resize
