@@ -232,7 +232,7 @@ body.loaded {
 .couple-full {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: var(--);
   overflow: hidden;
 }
 
@@ -902,7 +902,7 @@ body.loaded {
 ================================================================= */
 #closing-cinematic {
   position: relative;
-  min-height: 100vh;
+  min-height: var(--);
   display: flex;
   justify-content: center;
   align-items: center;
