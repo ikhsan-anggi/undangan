@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+:root {
+  --vh: 100vh;
+}
 
+@supports (height: 100dvh) {
+  :root {
+    --vh: 100dvh;
+  }
+}
 
 /* RESET */
 * {
