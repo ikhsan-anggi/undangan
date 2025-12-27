@@ -1091,3 +1091,12 @@ body.loaded {
   will-change: transform;
 }
 
+/* === iOS / Mobile background cover fix === */
+@media (max-aspect-ratio: 3/4) {
+  #hero,
+  .couple-full,
+  #closing-cinematic {
+    background-size: 100% auto !important;
+    background-position: center top !important;
+  }
+}
