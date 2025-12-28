@@ -1,131 +1,100 @@
 /* =====================================================
-   GLOBAL RESET & MOBILE SAFE
+   IMPORT & ROOT
+===================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  --vh: 100vh;
+}
+
+/* =====================================================
+   RESET (WAJIB AMAN MOBILE)
 ===================================================== */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
 }
 
 html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 100%;
   overflow-x: hidden;
   font-family: "Cormorant Garamond", serif;
-  background-color: #000;
-}
-
-/* iOS HEIGHT FIX */
-:root {
-  --vh: 100vh;
-}
-@supports (height: 100dvh) {
-  :root {
-    --vh: 100dvh;
-  }
+  background: #000;
 }
 
 /* =====================================================
-   BODY BACKGROUND
-===================================================== */
-body.loaded {
-  background: url("assets/images/cover.webp") center / cover no-repeat;
-  background-attachment: scroll;
-}
-
-/* =====================================================
-   HERO SECTION (SAFE MOBILE)
+   HERO (PALING KRUSIAL)
 ===================================================== */
 #hero {
   position: relative;
+  min-height: 100vh;
   width: 100%;
-  height: var(--vh);
-  min-height: 100svh;
   overflow: hidden;
 }
 
-#hero::before {
-  content: "";
+body.loaded {
+  background: url("assets/images/cover.webp") center center / cover no-repeat;
+}
+
+/* overlay aman */
+.hero-blur-box {
   position: absolute;
   inset: 0;
   background: rgba(10, 20, 40, 0.35);
-  z-index: 0;
-}
-
-.hero-content {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0 20px;
   z-index: 1;
 }
 
-.hero-inner {
-  animation: fadeUp 1s ease forwards;
+/* content */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 120px 20px 60px;
+  text-align: center;
 }
 
 .hero-subtitle {
   font-family: 'Great Vibes', cursive;
-  font-size: clamp(1.6rem, 5vw, 3rem);
+  font-size: 2.2rem;
   color: #fff;
-  margin-bottom: 6px;
 }
 
 .hero-title {
-  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  font-size: 2.6rem;
   color: #fff;
   line-height: 1.2;
 }
 
 .hero-date {
-  margin-top: 6px;
-  font-size: 0.95rem;
-  letter-spacing: 3px;
+  margin-top: 10px;
+  letter-spacing: 2px;
   color: #e8eef7;
 }
 
 /* =====================================================
-   ANIMATION
-===================================================== */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* =====================================================
-   SECTION GENERAL
+   SECTION UMUM (ANTI NUMPUK)
 ===================================================== */
 .section {
-  padding: 56px 20px;
-}
-
-.blur-card {
-  max-width: 420px;
-  margin: auto;
-  padding: 28px 22px;
-  border-radius: 22px;
-  background: rgba(15, 20, 40, 0.35);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(255,255,255,0.25);
+  width: 100%;
+  padding: 60px 20px;
 }
 
 .section-title {
   text-align: center;
   color: #fff;
-  margin-bottom: 22px;
   font-size: 1.4rem;
+  margin-bottom: 24px;
+}
+
+.blur-card {
+  max-width: 420px;
+  margin: auto;
+  padding: 26px 22px;
+  border-radius: 22px;
+  background: rgba(15, 20, 40, 0.45);
+  color: #fff;
 }
 
 /* =====================================================
@@ -134,48 +103,29 @@ body.loaded {
 .countdown-box {
   display: flex;
   justify-content: space-between;
-  gap: 8px;
+  gap: 10px;
 }
 
 .cd-item {
   flex: 1;
-  background: rgba(255,255,255,0.25);
-  padding: 12px 0;
+  padding: 14px 0;
   border-radius: 14px;
+  background: rgba(255,255,255,0.25);
   text-align: center;
-  color: #fff;
 }
 
 .cd-item span {
-  display: block;
   font-size: 1.4rem;
-  font-weight: 700;
-}
-
-.cd-item small {
-  font-size: 0.7rem;
-  opacity: 0.85;
+  font-weight: bold;
 }
 
 /* =====================================================
-   SALAM
-===================================================== */
-.salam-title,
-.salam-text {
-  text-align: center;
-  color: #fff;
-  line-height: 1.7;
-}
-
-/* =====================================================
-   COUPLE FULLSCREEN (SAFE)
+   COUPLE FULL (FIX MOBILE)
 ===================================================== */
 .couple-full {
   position: relative;
+  min-height: 100vh;
   width: 100%;
-  height: var(--vh);
-  min-height: 100svh;
-  overflow: hidden;
 }
 
 .couple-photo {
@@ -192,69 +142,43 @@ body.loaded {
   background: linear-gradient(
     to top,
     rgba(8,15,35,0.85),
-    rgba(8,15,35,0.25),
+    rgba(8,15,35,0.2),
     rgba(8,15,35,0)
   );
 }
 
 .couple-overlay {
   position: absolute;
-  bottom: 5%;
-  width: 100%;
-  padding: 0 20px;
-  text-align: center;
+  bottom: 24px;
+  left: 20px;
+  right: 20px;
   color: #fff;
   z-index: 2;
 }
 
-.couple-role {
-  font-family: 'Great Vibes', cursive;
-  font-size: 1.6rem;
-}
-
 .couple-name {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   font-weight: 600;
 }
 
-.couple-parents {
-  font-size: 0.9rem;
-  opacity: 0.9;
-}
-
 /* =====================================================
-   EVENT CARD
+   EVENT
 ===================================================== */
 #event-section {
-  padding: 70px 20px;
-  display: flex;
-  justify-content: center;
+  padding: 60px 20px;
 }
 
 .event-card-blur {
   max-width: 420px;
-  width: 100%;
-  padding: 36px 22px;
+  margin: auto;
+  padding: 32px 22px;
   border-radius: 22px;
-  background: rgba(15, 20, 40, 0.35);
-  backdrop-filter: blur(14px);
+  background: rgba(15,20,40,0.45);
   color: #fff;
-  text-align: center;
-}
-
-.event-name {
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-.event-info,
-.event-location {
-  font-size: 1rem;
-  opacity: 0.9;
 }
 
 /* =====================================================
-   GALLERY (MOBILE SAFE)
+   GALLERY (ANTI PECAH)
 ===================================================== */
 .gallery-grid {
   display: grid;
@@ -266,34 +190,37 @@ body.loaded {
   width: 100%;
   height: 140px;
   object-fit: cover;
-  border-radius: 16px;
+  border-radius: 14px;
 }
 
 /* =====================================================
    RSVP
 ===================================================== */
-#rsvp-section {
-  padding: 70px 20px;
-}
-
 .rsvp-wrapper {
   max-width: 420px;
   margin: auto;
-  padding: 30px 22px;
-  border-radius: 24px;
-  background: rgba(15, 20, 40, 0.35);
-  backdrop-filter: blur(14px);
-  text-align: center;
+  padding: 28px 22px;
+  border-radius: 22px;
+  background: rgba(15,20,40,0.45);
   color: #fff;
 }
 
-#rsvp-form input,
-#rsvp-form textarea {
-  width: 100%;
-  border-radius: 14px;
-  padding: 14px;
-  margin-bottom: 12px;
-  border: none;
+/* =====================================================
+   CLOSING
+===================================================== */
+#closing-cinematic {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.closing-title {
+  font-family: 'Italianno', cursive;
+  font-size: 3rem;
+  color: #fff3d6;
 }
 
 /* =====================================================
@@ -304,18 +231,29 @@ body.loaded {
   padding: 40px 20px;
   background: #0e132a;
   color: rgba(255,255,255,0.7);
-  font-size: 0.75rem;
+  font-size: 0.8rem;
 }
 
 /* =====================================================
-   MOBILE ONLY FIX
+   MOBILE FIX (WAJIB)
 ===================================================== */
 @media (max-width: 480px) {
+  .hero-content {
+    padding-top: 100px;
+  }
+
   .hero-title {
     font-size: 2.2rem;
   }
+}
 
-  .gallery-item {
-    height: 120px;
+/* =====================================================
+   SAFARI / iOS FIX
+===================================================== */
+@supports (-webkit-touch-callout: none) {
+  #hero,
+  .couple-full,
+  #closing-cinematic {
+    min-height: -webkit-fill-available;
   }
 }
