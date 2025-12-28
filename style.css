@@ -28,6 +28,11 @@ body::before {
   z-index: -10;
 }
 
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
 
 @supports (-webkit-touch-callout: none) {
   body.loaded {
