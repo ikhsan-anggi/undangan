@@ -1,12 +1,27 @@
 /* =====================================================
-   IMPORT & ROOT
+   GLOBAL RESET & MOBILE SAFE
 ===================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
 
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  font-family: "Cormorant Garamond", serif;
+  background-color: #000;
+}
+
+/* iOS HEIGHT FIX */
 :root {
   --vh: 100vh;
 }
-
 @supports (height: 100dvh) {
   :root {
     --vh: 100dvh;
@@ -14,134 +29,103 @@
 }
 
 /* =====================================================
-   RESET & BASE
+   BODY BACKGROUND
 ===================================================== */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden;
-  font-family: "Cormorant Garamond", serif;
-}
-
-body {
-  background: #000;
-}
-
 body.loaded {
   background: url("assets/images/cover.webp") center / cover no-repeat;
   background-attachment: scroll;
 }
 
 /* =====================================================
-   HERO
+   HERO SECTION (SAFE MOBILE)
 ===================================================== */
 #hero {
   position: relative;
   width: 100%;
   height: var(--vh);
+  min-height: 100svh;
   overflow: hidden;
 }
 
-.hero-blur-box {
+#hero::before {
+  content: "";
   position: absolute;
   inset: 0;
-  background: rgba(10, 20, 40, 0.25);
-  backdrop-filter: blur(2px);
-  pointer-events: none;
+  background: rgba(10, 20, 40, 0.35);
+  z-index: 0;
 }
 
 .hero-content {
   position: absolute;
-  top: 24%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  max-width: 800px;
-  padding: 0 20px;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  padding: 0 20px;
+  z-index: 1;
 }
 
 .hero-inner {
-  opacity: 0;
-  animation: fadeUp 1.2s ease-out forwards;
+  animation: fadeUp 1s ease forwards;
 }
 
 .hero-subtitle {
   font-family: 'Great Vibes', cursive;
-  font-size: clamp(1.8rem, 5vw, 3.2rem);
+  font-size: clamp(1.6rem, 5vw, 3rem);
   color: #fff;
-  text-shadow: 0 4px 14px rgba(0,0,0,.45);
+  margin-bottom: 6px;
 }
 
 .hero-title {
-  font-size: clamp(2.6rem, 6vw, 4.2rem);
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
   color: #fff;
-  white-space: nowrap;
-  text-shadow: 0 4px 14px rgba(0,0,0,.45);
+  line-height: 1.2;
 }
 
 .hero-date {
-  font-size: clamp(1.1rem, 2.8vw, 1.4rem);
+  margin-top: 6px;
+  font-size: 0.95rem;
   letter-spacing: 3px;
   color: #e8eef7;
 }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
 /* =====================================================
-   MUSIC BUTTON
+   ANIMATION
 ===================================================== */
-.music-btn {
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.85);
-  backdrop-filter: blur(8px);
-  border: none;
-  z-index: 999;
-  font-size: 20px;
-}
-
-.music-btn.playing i {
-  color: #4db6ac;
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* =====================================================
-   GENERAL SECTION
+   SECTION GENERAL
 ===================================================== */
 .section {
-  padding: 45px 20px;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 1.4rem;
-  margin-bottom: 22px;
-  color: #fff;
+  padding: 56px 20px;
 }
 
 .blur-card {
-  max-width: 400px;
+  max-width: 420px;
   margin: auto;
   padding: 28px 22px;
   border-radius: 22px;
   background: rgba(15, 20, 40, 0.35);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,.25);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+.section-title {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 22px;
+  font-size: 1.4rem;
 }
 
 /* =====================================================
@@ -150,27 +134,27 @@ body.loaded {
 .countdown-box {
   display: flex;
   justify-content: space-between;
-  gap: 10px;
+  gap: 8px;
 }
 
 .cd-item {
-  width: 22%;
-  background: rgba(255,255,255,.25);
-  padding: 14px 0;
+  flex: 1;
+  background: rgba(255,255,255,0.25);
+  padding: 12px 0;
   border-radius: 14px;
-  backdrop-filter: blur(6px);
   text-align: center;
   color: #fff;
 }
 
 .cd-item span {
-  font-size: 1.6rem;
-  font-weight: bold;
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 700;
 }
 
 .cd-item small {
-  font-size: .75rem;
-  opacity: .8;
+  font-size: 0.7rem;
+  opacity: 0.85;
 }
 
 /* =====================================================
@@ -178,25 +162,25 @@ body.loaded {
 ===================================================== */
 .salam-title,
 .salam-text {
-  color: #fff;
   text-align: center;
+  color: #fff;
   line-height: 1.7;
 }
 
 /* =====================================================
-   COUPLE FULLSCREEN
+   COUPLE FULLSCREEN (SAFE)
 ===================================================== */
 .couple-full {
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: var(--vh);
+  min-height: 100svh;
   overflow: hidden;
 }
 
 .couple-photo {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: 0;
   background-size: cover;
   background-position: center;
 }
@@ -208,26 +192,19 @@ body.loaded {
   background: linear-gradient(
     to top,
     rgba(8,15,35,0.85),
-    rgba(8,15,35,0.35),
+    rgba(8,15,35,0.25),
     rgba(8,15,35,0)
   );
 }
 
 .couple-overlay {
   position: absolute;
-  bottom: 4%;
+  bottom: 5%;
+  width: 100%;
+  padding: 0 20px;
+  text-align: center;
   color: #fff;
-  text-shadow: 0 4px 14px rgba(0,0,0,.45);
-}
-
-.groom-overlay {
-  left: 4%;
-  text-align: left;
-}
-
-.bride-overlay {
-  right: 4%;
-  text-align: right;
+  z-index: 2;
 }
 
 .couple-role {
@@ -236,12 +213,17 @@ body.loaded {
 }
 
 .couple-name {
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-weight: 600;
 }
 
+.couple-parents {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
 /* =====================================================
-   EVENT
+   EVENT CARD
 ===================================================== */
 #event-section {
   padding: 70px 20px;
@@ -251,16 +233,28 @@ body.loaded {
 
 .event-card-blur {
   max-width: 420px;
-  padding: 40px 25px;
+  width: 100%;
+  padding: 36px 22px;
   border-radius: 22px;
-  backdrop-filter: blur(12px);
   background: rgba(15, 20, 40, 0.35);
-  text-align: center;
+  backdrop-filter: blur(14px);
   color: #fff;
+  text-align: center;
+}
+
+.event-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.event-info,
+.event-location {
+  font-size: 1rem;
+  opacity: 0.9;
 }
 
 /* =====================================================
-   GALLERY
+   GALLERY (MOBILE SAFE)
 ===================================================== */
 .gallery-grid {
   display: grid;
@@ -273,41 +267,33 @@ body.loaded {
   height: 140px;
   object-fit: cover;
   border-radius: 16px;
-  transition: .3s ease;
-  content-visibility: auto;
 }
 
 /* =====================================================
    RSVP
 ===================================================== */
+#rsvp-section {
+  padding: 70px 20px;
+}
+
 .rsvp-wrapper {
   max-width: 420px;
   margin: auto;
   padding: 30px 22px;
-  border-radius: 26px;
+  border-radius: 24px;
   background: rgba(15, 20, 40, 0.35);
   backdrop-filter: blur(14px);
-  border: 1px solid rgba(255,255,255,0.35);
   text-align: center;
+  color: #fff;
 }
 
-/* =====================================================
-   CLOSING
-===================================================== */
-#closing-cinematic {
-  position: relative;
-  min-height: var(--vh);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.closing-title {
-  font-family: 'Italianno', cursive;
-  font-size: clamp(2.8rem, 6vw, 4rem);
-  color: #fff3d6;
-  text-shadow: 0 2px 10px rgba(0,0,0,.55);
+#rsvp-form input,
+#rsvp-form textarea {
+  width: 100%;
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 12px;
+  border: none;
 }
 
 /* =====================================================
@@ -315,36 +301,21 @@ body.loaded {
 ===================================================== */
 .wedding-footer {
   text-align: center;
-  padding: 48px 20px;
+  padding: 40px 20px;
   background: #0e132a;
   color: rgba(255,255,255,0.7);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
 }
 
 /* =====================================================
-   PERFORMANCE & IOS FIX
+   MOBILE ONLY FIX
 ===================================================== */
-@supports not (backdrop-filter: blur(10px)) {
-  .blur-card,
-  .event-card-blur,
-  .rsvp-wrapper {
-    background: rgba(15, 20, 40, 0.75);
-  }
-}
-
 @media (max-width: 480px) {
   .hero-title {
     font-size: 2.2rem;
   }
 
-  .hero-blur-box {
-    backdrop-filter: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
+  .gallery-item {
+    height: 120px;
   }
 }
