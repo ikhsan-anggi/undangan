@@ -1,4 +1,8 @@
+/* =====================================================
+   IMPORT & ROOT
+===================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
 :root {
   --vh: 100vh;
 }
@@ -9,12 +13,17 @@
   }
 }
 
-/* RESET */
-* {
+/* =====================================================
+   RESET & BASE
+===================================================== */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -27,38 +36,28 @@ body {
 }
 
 body.loaded {
-  background: url("assets/images/cover.webp") center/cover no-repeat;
-  background-attachment: scroll; /* === iOS FIX === */
+  background: url("assets/images/cover.webp") center / cover no-repeat;
+  background-attachment: scroll;
 }
 
-@supports (-webkit-touch-callout: none) {
-  body.loaded {
-    background-attachment: scroll;
-  }
-}
-
-
-
-
-/* ================= HERO ================= */
-
+/* =====================================================
+   HERO
+===================================================== */
 #hero {
   position: relative;
-  height: var(--vh, 100vh);
   width: 100%;
+  height: var(--vh);
   overflow: hidden;
 }
 
-#hero .hero-blur-box {
+.hero-blur-box {
   position: absolute;
   inset: 0;
-  background: rgba(10, 20, 40, 0.2);
-  backdrop-filter: blur(0.2px);
-  z-index: 0;
+  background: rgba(10, 20, 40, 0.25);
+  backdrop-filter: blur(2px);
   pointer-events: none;
 }
 
-/* Text wrapper */
 .hero-content {
   position: absolute;
   top: 24%;
@@ -66,8 +65,8 @@ body.loaded {
   transform: translate(-50%, -50%);
   width: 100%;
   max-width: 800px;
-  text-align: center;
   padding: 0 20px;
+  text-align: center;
 }
 
 .hero-inner {
@@ -78,42 +77,31 @@ body.loaded {
 .hero-subtitle {
   font-family: 'Great Vibes', cursive;
   font-size: clamp(1.8rem, 5vw, 3.2rem);
-  margin-bottom: 0;
-  margin-top: -10px;
   color: #fff;
-  font-weight: 400;
+  text-shadow: 0 4px 14px rgba(0,0,0,.45);
 }
 
 .hero-title {
-  font-size: clamp(2.8rem, 6vw, 4.2rem);
+  font-size: clamp(2.6rem, 6vw, 4.2rem);
   color: #fff;
   white-space: nowrap;
-}
-
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 2.4rem;
-    letter-spacing: 0.5px;
-  }
+  text-shadow: 0 4px 14px rgba(0,0,0,.45);
 }
 
 .hero-date {
   font-size: clamp(1.1rem, 2.8vw, 1.4rem);
   letter-spacing: 3px;
-  font-weight: 300;
   color: #e8eef7;
-  margin-top: 5px;
 }
-
 
 @keyframes fadeUp {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-
-
-/* MUSIC */
+/* =====================================================
+   MUSIC BUTTON
+===================================================== */
 .music-btn {
   position: fixed;
   right: 18px;
@@ -121,30 +109,23 @@ body.loaded {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: rgba(255,255,255,.8);
+  background: rgba(255,255,255,.85);
   backdrop-filter: blur(8px);
   border: none;
   z-index: 999;
   font-size: 20px;
 }
+
 .music-btn.playing i {
   color: #4db6ac;
 }
 
-
-/* =================  GENERAL SECTION ================= */
-.section { padding: 45px 20px; }
-
-.blur-card {
-  max-width: 400px;
-  margin: auto;
-  padding: 28px 22px;
-  border-radius: 22px;
-  background: rgba(10, 20, 40, 0.2);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(255,255,255,.25);
+/* =====================================================
+   GENERAL SECTION
+===================================================== */
+.section {
+  padding: 45px 20px;
 }
-
 
 .section-title {
   text-align: center;
@@ -153,18 +134,19 @@ body.loaded {
   color: #fff;
 }
 
-.fade-up {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: 0.8s ease;
-}
-.fade-up.show {
-  opacity: 1;
-  transform: translateY(0);
+.blur-card {
+  max-width: 400px;
+  margin: auto;
+  padding: 28px 22px;
+  border-radius: 22px;
+  background: rgba(15, 20, 40, 0.35);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,.25);
 }
 
-
-/* =================  COUNTDOWN ================= */
+/* =====================================================
+   COUNTDOWN
+===================================================== */
 .countdown-box {
   display: flex;
   justify-content: space-between;
@@ -176,9 +158,9 @@ body.loaded {
   background: rgba(255,255,255,.25);
   padding: 14px 0;
   border-radius: 14px;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(6px);
   text-align: center;
-  color: #ffff;
+  color: #fff;
 }
 
 .cd-item span {
@@ -191,912 +173,178 @@ body.loaded {
   opacity: .8;
 }
 
-/* QUOTE */
-.quote {
-  font-size: 1.15rem;
-  line-height: 1.85;
-  font-weight: 300;
-  text-align: center;
-  color: #ffff;
-}
-
-.quote-ref {
-  text-align: center;
-  margin-top: 14px;
-  font-size: .9rem;
-  opacity: .85;
-  color: #ffff;
-}
-
-
-/* ================= SALAM SECTION ================= */
-.salam-card {
-  text-align: center;
-}
-
-.salam-title {
-  font-size: 1.25rem;
-  font-weight: 400;
-  margin-bottom: 14px;
-  line-height: 1.6;
-  color: #ffff;
-}
-
+/* =====================================================
+   SALAM
+===================================================== */
+.salam-title,
 .salam-text {
-  font-size: 1rem;
+  color: #fff;
+  text-align: center;
   line-height: 1.7;
-  opacity: 0.95;
-  color: #ffff;
 }
 
-/* ============ PROFIL MEMPELAI FULL SCREEN ============ */
-
-.couple-section {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
+/* =====================================================
+   COUPLE FULLSCREEN
+===================================================== */
 .couple-full {
   position: relative;
   width: 100vw;
-  height: var(--vh, 100vh);
+  height: var(--vh);
   overflow: hidden;
 }
 
-/* FOTO FULL */
 .couple-photo {
+  position: relative;
   width: 100%;
   height: 100%;
   background-size: cover;
   background-position: center;
 }
 
-/* OVERLAY GRADIENT */
 .couple-photo::after {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(8,15,35,0.8),
-    rgba(8,15,35,0.25),
+    rgba(8,15,35,0.85),
+    rgba(8,15,35,0.35),
     rgba(8,15,35,0)
   );
 }
 
-/* TEXT OVERLAY */
 .couple-overlay {
   position: absolute;
-  bottom: 5%;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
+  bottom: 4%;
   color: #fff;
-  z-index: 2;
-  padding: 0 24px;
-  width: 100%;
-  text-shadow: 0 4px 14px rgba(0,0,0,.35);
+  text-shadow: 0 4px 14px rgba(0,0,0,.45);
 }
 
-/* ====== POSISI TEKS GROOM & BRIDE (LEBIH PINGGIR & BAWAH) ====== */
-
 .groom-overlay {
-  left: 1%;
-  bottom: 1%;
-  transform: none;
+  left: 4%;
   text-align: left;
-  max-width: 420px;
 }
 
 .bride-overlay {
-  right: 1%;
-  left: auto;
-  bottom: 1%;
-  transform: none;
+  right: 4%;
   text-align: right;
-  max-width: 420px;
 }
-
-/* Desktop / layar besar */
-@media (min-width: 1024px) {
-  .groom-overlay {
-    left: 4%;
-    bottom: 4%;
-  }
-
-  .bride-overlay {
-    right: 4%;
-    bottom: 4%;
-  }
-}
-
-
 
 .couple-role {
   font-family: 'Great Vibes', cursive;
-  font-size: 1.7rem;
-  margin-bottom: 6px;
+  font-size: 1.6rem;
 }
 
 .couple-name {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   font-weight: 600;
-  margin-bottom: 8px;
 }
 
-.couple-parents {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  opacity: 0.95;
-}
-
-/* Divider antar mempelai */
-.couple-divider-full {
-  text-align: center;
-  font-size: 1.6rem;
-  padding: 32px 0;
-  background: rgba(8,15,35,0.9);
-  color: #fff;
-}
-
-/* Tablet ke atas */
-@media (min-width: 768px) {
-  .couple-overlay {
-    bottom: 12%;
-  }
-
-  .couple-name {
-    font-size: 1.4rem;
-  }
-}
-
-/* ============================
-   EVENT SECTION (CARD BLUR)
-============================ */
+/* =====================================================
+   EVENT
+===================================================== */
 #event-section {
-  padding: 80px 20px;
+  padding: 70px 20px;
   display: flex;
   justify-content: center;
 }
 
 .event-card-blur {
   max-width: 420px;
-  width: 100%;
   padding: 40px 25px;
   border-radius: 22px;
-  backdrop-filter: blur(14px);
-  background: rgba(15, 20, 40, 0.32);
+  backdrop-filter: blur(12px);
+  background: rgba(15, 20, 40, 0.35);
   text-align: center;
   color: #fff;
 }
 
-.event-title {
-  font-size: 1.5rem;
-  margin-bottom: 30px;
-}
-
-.event-item {
-  margin-bottom: 10px;
-}
-
-.event-name {
-  font-size: 1.3rem;
-  margin-bottom: 6px;
-  font-weight: 600;
-}
-
-.event-info {
-  font-size: 1.1rem;
-  opacity: .9;
-}
-
-.event-location {
-  font-size: 1.1rem;
-  line-height: 1.5;
-  margin-bottom: 18px;
-}
-
-/* Divider */
-.event-divider {
-  width: 40px;
-  height: 1px;
-  background: rgba(255,255,255,.6);
-  margin: 25px auto;
-}
-
-/* Maps Button */
-.maps-btn {
-  display: inline-block;
-  padding: 10px 22px;
-  border-radius: 25px;
-  border: 1px solid rgba(121, 189, 252, 0.7);
-  background-color: rgba(121, 189, 252, 0.7);
-  color: #ffff;
-  font-size: .9rem;
-  text-decoration: none;
-  transition: all .3s ease;
-}
-
-.maps-btn:hover {
-  background: rgba(10,20,40,0.2);
-}
-
-/* ============================
-   OUR STORY
-============================ */
-#story-section {
-  position: relative;
-  padding: 70px 20px;
-}
-
-.story-wrapper {
-  max-width: 420px;
-  margin: auto;
-  text-align: center;
-}
-
-.story-title {
-  font-size: 1.6rem;
-  color: #fff;
-  margin-bottom: 30px;
-  font-weight: 600;
-  letter-spacing: .5px;
-}
-
-.story-item {
-  position: relative;
-  margin-bottom: 22px;
-  padding: 22px 20px;
-  background: rgba(15, 20, 40, 0.32);
-  backdrop-filter: blur(10px);
-  border-radius: 18px;
-  color: #fff;
-}
-
-
-.story-item h3 {
-  font-size: 1.05rem;
-  font-weight: 600;
-  margin-bottom: 6px;
-}
-
-.story-item p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  opacity: .9;
-}
-
-/* ============================
+/* =====================================================
    GALLERY
-============================ */
-#gallery-section {
-  padding: 70px 20px;
-}
-
-.gallery-wrapper {
-  max-width: 420px;
-  margin: auto;
-}
-
-.gallery-title {
-  text-align: center;
-  font-size: 1.6rem;
-  color: #fff;
-  margin-bottom: 25px;
-}
-
-/* GRID RANDOM */
+===================================================== */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 140px;
   gap: 10px;
 }
 
 .gallery-item {
   width: 100%;
-  height: 100%;
+  height: 140px;
   object-fit: cover;
   border-radius: 16px;
-  cursor: pointer;
   transition: .3s ease;
+  content-visibility: auto;
 }
 
-.gallery-item:hover {
-  transform: scale(1.02);
-}
-
-.gallery-item.tall {
-  grid-row: span 2;
-}
-
-.gallery-item.wide {
-  grid-column: span 2;
-  grid-row: span 1;
-}
-
-/* ============================
-   LIGHTBOX
-============================ */
-#lightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba(10,20,40,0.85);
-  backdrop-filter: blur(10px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: .3s ease;
-  z-index: 999999;
-}
-
-#lightbox.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.lightbox-img {
-  max-width: 90%;
-  max-height: 85%;
-  border-radius: 18px;
-}
-
-#lightbox .close {
-  position: absolute;
-  top: 18px;
-  right: 22px;
-  font-size: 32px;
-  color: #fff;
-  cursor: pointer;
-}
-
-/* ============================
-   RSVP SECTION FINAL
-============================ */
-#rsvp-section {
-  padding: 70px 20px;
-}
-
+/* =====================================================
+   RSVP
+===================================================== */
 .rsvp-wrapper {
   max-width: 420px;
   margin: auto;
   padding: 30px 22px;
   border-radius: 26px;
-  background: rgba(15, 20, 40, 0.32);
-  backdrop-filter: blur(16px);
+  background: rgba(15, 20, 40, 0.35);
+  backdrop-filter: blur(14px);
   border: 1px solid rgba(255,255,255,0.35);
   text-align: center;
 }
 
-/* TITLE */
-.rsvp-title {
-  font-size: 1.6rem;
-  color: #ffffff;
-  margin-bottom: 6px;
-}
-
-.rsvp-desc {
-  font-size: .9rem;
-  color: rgba(255,255,255,0.85);
-  margin-bottom: 22px;
-}
-
-/* FORM */
-#rsvp-form input,
-#rsvp-form textarea {
-  width: 100%;
-  border: none;
-  border-radius: 14px;
-  padding: 14px;
-  margin-bottom: 12px;
-  background: rgba(255,255,255,0.9);
-  font-size: .9rem;
-  outline: none;
-}
-
-#rsvp-form textarea {
-  resize: none;
-}
-
-
-/* RADIO */
-.rsvp-radio {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin: 18px 0 26px;
-  font-size: .85rem;
-  color: #ffffff;
-}
-
-.rsvp-radio label {
-  display: flex;
-  flex-direction: column;   /* BUAT KE ATAS-BAWAH */
-  align-items: center;      /* SEJAJAR TENGAH */
-  gap: 6px;
-  cursor: pointer;
-}
-
-.rsvp-radio input[type="radio"] {
-  margin: 0;
-}
-
-
-#rsvp-submit {
-  width: 100%;
-  padding: 14px;
-  border-radius: 18px;
-  border: none;
-  background: linear-gradient(135deg, #0b83e6, #64b5f6);
-  color: #ffffff;
-  font-size: .95rem;
-  cursor: pointer;
-  transition: .3s ease;
-}
-
-#rsvp-submit:hover {
-  opacity: .9;
-}
-#rsvp-submit:disabled {
-  background: linear-gradient(135deg, #9ca3af, #cbd5e1);
-  color: #475569;
-  cursor: not-allowed;
-  opacity: 0.9;
-}
-
-#rsvp-submit:disabled::after {
-  content: " ✓";
-}
-
-
-/* UCAPAN LIST */
-.rsvp-list {
-  margin-top: 30px;
-  text-align: left;
-}
-
-.rsvp-item {
-  padding: 14px;
-  border-radius: 14px;
-  background: rgba(15, 20, 40, 0.32);
-  backdrop-filter: blur(10px);
-  margin-bottom: 12px;
-}
-
-.rsvp-item h4 {
-  font-size: .95rem;
-  color: #ffffff;
-  margin-bottom: 4px;
-}
-
-.rsvp-item span {
-  font-size: .75rem;
-  color: rgba(255,255,255,0.7);
-}
-
-.rsvp-item p {
-  font-size: .85rem;
-  color: #ffffff;
-  margin-top: 6px;
-}
-
-#rsvp-submit.loading {
-  pointer-events: none;
-  opacity: .6;
-}
-
-#rsvp-submit.loading::after {
-  content: " ⏳";
-}
-
-/* =============RSVP TOAST (BLUR & ELEGANT)=============== */
-.rsvp-toast {
-  position: fixed;
-  bottom: 90px;
-  left: 50%;
-  transform: translateX(-50%) translateY(20px);
-  max-width: 320px;
-  padding: 14px 20px;
-  border-radius: 22px;
-
-  background: rgba(15, 20, 40, 0.75);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(255,255,255,0.25);
-
-  color: #fff;
-  font-size: 0.85rem;
-  line-height: 1.5;
-  text-align: center;
-
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.4s ease;
-  z-index: 9999;
-}
-
-.rsvp-toast.show {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-
-.rsvp-toast.success { border-color: rgba(160, 210, 180, 0.6); }
-.rsvp-toast.error   { border-color: rgba(255, 160, 160, 0.6); }
-.rsvp-toast.info    { border-color: rgba(140, 180, 255, 0.6); }
-
-
-
-
-/* ============================
-   WEDDING GIFT
-============================ */
-
-.section-blur {
-  position: relative;
-  width: 100%;
-  padding: 70px 20px;
-  display: flex;
-  justify-content: center;
-}
-
-.section-inner {
-  position: relative;
-  width: 100%;
-  max-width: 420px;
-  padding: 40px 28px;
-  border-radius: 26px;
-  background: rgba(15, 20, 40, 0.32);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(255,255,255,0.25);
-  text-align: center;
-  color: #fff;
-  overflow: hidden;
-}
-
-/* Judul */
-.gift-title {
-  font-size: 1.8rem;
-  margin-bottom: 14px;
-  font-family: 'Great Vibes', cursive;
-}
-
-/* Deskripsi */
-.gift-desc {
-  font-size: 0.95rem;
-  opacity: 0.9;
-  line-height: 1.6;
-  margin-bottom: 30px;
-}
-
-/* CARD */
-.gift-card {
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(14px);
-  border-radius: 22px;
-  padding: 28px 22px;
-  margin-top: 22px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-
-  border: 1px solid rgba(255,255,255,0.45);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-}
-
-
-/* ============================
-   BLUR BOX SEDANG (WRAP AKUN)
-============================ */
-.gift-container {
-  background: rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(16px);
-  border-radius: 24px;
-  padding: 22px 18px;
-  margin-top: 26px;
-  display: flex;
-  gap: 20px;
-  border: 1px solid rgba(255,255,255,0.35);
-  flex-wrap: wrap;   /* 🔥 KUNCI */
-}
-
-/* ============================
-   BLUR BOX KECIL (PER AKUN)
-============================ */
-.gift-item {
-  flex: 1; /* BIKIN KIRI–KANAN SEIMBANG */
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(14px);
-  border-radius: 20px;
-  padding: 22px 16px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-
-  border: 1px solid rgba(255,255,255,0.45);
-  box-shadow: 0 10px 26px rgba(0,0,0,0.12);
-  flex: 1 1 0;
-  min-width: 0;
-
-}
-
-
-/* LOGO */
-.gift-logo {
-  width: 64px;
-  margin-bottom: 4px;
-}
-
-/* NAMA */
-.gift-name {
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: #1e3a5f;
-  margin-top: 1px;
-  margin-bottom: 2px;
-}
-
-/* NOMOR */
-.gift-number {
-  color: #1e3a5f;
-  margin-bottom: 6px;
-  white-space: nowrap;
-  font-family: 'Space Mono', monospace;
-  letter-spacing: 1.2px;
-  font-size: 0.9rem;
-}
-
-
-/* Button */
-.gift-btn {
-  background: #4db6ac;
-  color: #fff;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 30px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: 0.3s ease;
-  margin-top: 16px;
-  white-space: nowrap;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.gift-btn:hover {
-  background: #3aa79c;
-}
-/* ============================
-   COPY TOAST
-============================ */
-
-.copy-toast {
-  position: fixed;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%) translateY(20px);
-  background: rgba(255,255,255,0.85);
-  color: #1e3a5f;
-  padding: 12px 20px;
-  border-radius: 30px;
-  font-size: 0.85rem;
-  backdrop-filter: blur(10px);
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.4s ease;
-  z-index: 9999;
-}
-
-.copy-toast.show {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-
-@media (max-width: 520px) {
-  .gift-container {
-    flex-direction: column;
-  }
-}
-
-
-/* ==============================================================
-   CLOSING CINEMATIC — SOFTER OVERLAY & DRAMATIC TEXT
-================================================================= */
+/* =====================================================
+   CLOSING
+===================================================== */
 #closing-cinematic {
   position: relative;
-  min-height: var(--vh, 100vh);
+  min-height: var(--vh);
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  overflow: hidden;
-}
-
-/* FILM GRAIN + VIGNETTE (HALUS) */
-#closing-cinematic::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(
-      ellipse at center,
-      rgba(0,0,0,0) 45%,
-      rgba(0,0,0,0.45) 100%
-    ),
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-  z-index: 1;
-}
-
-/* SOFT OVERLAY (LEBIH TIPIS) */
-.closing-content::before {
-  content: "";
-  position: absolute;
-  inset: -26px -18px;
-  background: rgba(15, 20, 40, 0.32);
-  backdrop-filter: blur(3px);
-  border-radius: 30px;
-  z-index: -1;
-}
-
-/* CONTENT */
-.closing-content {
-  position: relative;
-  z-index: 2;
-  padding: 38px 24px;
-  max-width: 420px;
-  color: #fffaf0; /* ivory */
-}
-
-/* TEXT */
-.closing-small {
-  display: block;
-  font-size: 1.2rem;
-  letter-spacing: 3.5px;
-  color: #f2e8c9;
-  opacity: 0.9;
-  text-shadow:
-    0 1px 4px rgba(0,0,0,0.45);
-  transform: translateY(-58px);
 }
 
 .closing-title {
   font-family: 'Italianno', cursive;
-  font-size: clamp(2.9rem, 6vw, 4.1rem);
-  margin-top: 6px;
+  font-size: clamp(2.8rem, 6vw, 4rem);
   color: #fff3d6;
-  text-shadow:
-    0 2px 10px rgba(0,0,0,0.55),
-    0 0 18px rgba(255,220,150,0.25);
-  transform: translateY(-52px);
+  text-shadow: 0 2px 10px rgba(0,0,0,.55);
 }
 
-.closing-heart {
-  font-size: 1.5rem;
-  margin-top: 6px;
-  color: #ffd6a0;
-  text-shadow:
-    0 2px 10px rgba(0,0,0,0.5);
-  transform: translateY(-46px);
-}
-
-.heart-svg {
-  width: 26px;
-  height: 26px;
-  fill: #ffff;
-  filter:
-    drop-shadow(0 2px 8px rgba(0,0,0,0.45))
-    drop-shadow(0 0 14px rgba(255,210,140,0.25));
-}
-
-
-.closing-text {
-  margin-top: 128px;
-  font-size: 1.2rem;
-  line-height: 1.75;
-  color: #f5eddc;
-  opacity: 0.9;
-  text-shadow:
-    0 2px 8px rgba(0,0,0,0.55);
-}
-
-
-
-@keyframes softPulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.9;
-  }
-  50% {
-    transform: scale(1.08);
-    opacity: 1;
-  }
-}
-
-.closing-heart .heart-svg {
-  animation: softPulse 3.5s ease-in-out infinite;
-}
-
-@media (min-width: 768px) {
-  #closing-cinematic {
-    padding: 120px 16px 140px;
-  }
-
-  .closing-small {
-    transform: translateY(-24px);
-  }
-
-  .closing-title {
-    transform: translateY(-20px);
-  }
-
-  .closing-heart {
-    transform: translateY(-16px);
-  }
-
-  .closing-text {
-    margin-top: 96px;
-  }
-}
-
-
-
-
-/* ============================
-   FOOTER — LAST SECTION
-============================= */
+/* =====================================================
+   FOOTER
+===================================================== */
 .wedding-footer {
   text-align: center;
-  padding: 48px 20px 36px;
+  padding: 48px 20px;
   background: #0e132a;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.7);
   font-size: 0.8rem;
-  letter-spacing: 1px;
 }
 
-.footer-love {
-  margin-bottom: 6px;
-  font-weight: 300;
+/* =====================================================
+   PERFORMANCE & IOS FIX
+===================================================== */
+@supports not (backdrop-filter: blur(10px)) {
+  .blur-card,
+  .event-card-blur,
+  .rsvp-wrapper {
+    background: rgba(15, 20, 40, 0.75);
+  }
 }
 
-.footer-love span {
-  color: #ffb3b3;
-  margin: 0 4px;
-  display: inline-block;
-  animation: heartBeat 2.5s infinite;
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-blur-box {
+    backdrop-filter: none;
+  }
 }
 
-.footer-copy {
-  font-size: 0.75rem;
-  opacity: 0.6;
-}
-
-/* HEART ANIMATION (HALUS) */
-@keyframes heartBeat {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.15); }
-  100% { transform: scale(1); }
-}
-
-/* === iOS FIX: prevent Safari background zoom / layer scaling === */
-#hero,
-.couple-full,
-#closing-cinematic {
-  transform: translateZ(0);
-  will-change: transform;
-}
-
-/* === iOS / Mobile background cover fix === */
-@media (max-aspect-ratio: 3/4) {
-  #hero,
-  .couple-full,
-  #closing-cinematic {
-    background-size: 100% auto !important;
-    background-position: center top !important;
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
   }
 }
