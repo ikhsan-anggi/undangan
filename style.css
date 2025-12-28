@@ -4,11 +4,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
 
 :root {
-  --vh: 100vh;
+  --safe-padding: 20px;
 }
 
 /* =====================================================
-   RESET (WAJIB AMAN MOBILE)
+   RESET (AMAN MOBILE)
 ===================================================== */
 *,
 *::before,
@@ -23,27 +23,28 @@ html, body {
   overflow-x: hidden;
   font-family: "Cormorant Garamond", serif;
   background: #000;
+  color: #fff;
 }
 
 /* =====================================================
-   HERO (PALING KRUSIAL)
+   HERO (FULLSCREEN TERKUNCI)
 ===================================================== */
 #hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 100svh;
   width: 100%;
+  background: url("assets/images/cover.webp") center / cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
 }
 
-body.loaded {
-  background: url("assets/images/cover.webp") center center / cover no-repeat;
-}
-
-/* overlay aman */
+/* overlay */
 .hero-blur-box {
   position: absolute;
   inset: 0;
-  background: rgba(10, 20, 40, 0.35);
+  background: rgba(10, 20, 40, 0.45);
   z-index: 1;
 }
 
@@ -51,19 +52,17 @@ body.loaded {
 .hero-content {
   position: relative;
   z-index: 2;
-  padding: 120px 20px 60px;
   text-align: center;
+  padding: 120px var(--safe-padding) 80px;
 }
 
 .hero-subtitle {
   font-family: 'Great Vibes', cursive;
   font-size: 2.2rem;
-  color: #fff;
 }
 
 .hero-title {
   font-size: 2.6rem;
-  color: #fff;
   line-height: 1.2;
 }
 
@@ -78,23 +77,26 @@ body.loaded {
 ===================================================== */
 .section {
   width: 100%;
-  padding: 60px 20px;
+  padding: 70px var(--safe-padding);
+  display: flex;
+  justify-content: center;
+}
+
+.section-inner {
+  width: 100%;
+  max-width: 420px;
 }
 
 .section-title {
   text-align: center;
-  color: #fff;
   font-size: 1.4rem;
   margin-bottom: 24px;
 }
 
 .blur-card {
-  max-width: 420px;
-  margin: auto;
   padding: 26px 22px;
   border-radius: 22px;
   background: rgba(15, 20, 40, 0.45);
-  color: #fff;
 }
 
 /* =====================================================
@@ -102,7 +104,6 @@ body.loaded {
 ===================================================== */
 .countdown-box {
   display: flex;
-  justify-content: space-between;
   gap: 10px;
 }
 
@@ -120,19 +121,19 @@ body.loaded {
 }
 
 /* =====================================================
-   COUPLE FULL (FIX MOBILE)
+   COUPLE (MOBILE SAFE)
 ===================================================== */
 .couple-full {
   position: relative;
-  min-height: 100vh;
   width: 100%;
 }
 
 .couple-photo {
-  position: absolute;
-  inset: 0;
+  width: 100%;
+  height: 70vh;
   background-size: cover;
   background-position: center;
+  position: relative;
 }
 
 .couple-photo::after {
@@ -141,19 +142,15 @@ body.loaded {
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(8,15,35,0.85),
-    rgba(8,15,35,0.2),
+    rgba(8,15,35,0.9),
+    rgba(8,15,35,0.4),
     rgba(8,15,35,0)
   );
 }
 
 .couple-overlay {
-  position: absolute;
-  bottom: 24px;
-  left: 20px;
-  right: 20px;
-  color: #fff;
-  z-index: 2;
+  padding: 24px;
+  text-align: center;
 }
 
 .couple-name {
@@ -165,20 +162,21 @@ body.loaded {
    EVENT
 ===================================================== */
 #event-section {
-  padding: 60px 20px;
+  padding: 70px var(--safe-padding);
+  display: flex;
+  justify-content: center;
 }
 
 .event-card-blur {
   max-width: 420px;
-  margin: auto;
+  width: 100%;
   padding: 32px 22px;
   border-radius: 22px;
   background: rgba(15,20,40,0.45);
-  color: #fff;
 }
 
 /* =====================================================
-   GALLERY (ANTI PECAH)
+   GALLERY
 ===================================================== */
 .gallery-grid {
   display: grid;
@@ -198,22 +196,17 @@ body.loaded {
 ===================================================== */
 .rsvp-wrapper {
   max-width: 420px;
-  margin: auto;
+  width: 100%;
   padding: 28px 22px;
   border-radius: 22px;
   background: rgba(15,20,40,0.45);
-  color: #fff;
 }
 
 /* =====================================================
    CLOSING
 ===================================================== */
 #closing-cinematic {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 80px 20px;
+  padding: 100px var(--safe-padding);
   text-align: center;
 }
 
@@ -235,25 +228,23 @@ body.loaded {
 }
 
 /* =====================================================
-   MOBILE FIX (WAJIB)
+   MOBILE
 ===================================================== */
 @media (max-width: 480px) {
-  .hero-content {
-    padding-top: 100px;
-  }
-
   .hero-title {
     font-size: 2.2rem;
+  }
+
+  .couple-photo {
+    height: 60vh;
   }
 }
 
 /* =====================================================
-   SAFARI / iOS FIX
+   iOS SAFARI FIX
 ===================================================== */
 @supports (-webkit-touch-callout: none) {
-  #hero,
-  .couple-full,
-  #closing-cinematic {
+  #hero {
     min-height: -webkit-fill-available;
   }
 }
